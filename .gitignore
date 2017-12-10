@@ -1,6 +1,11 @@
 # for eclipse
 /.settings/
 /.project
+.classpath
+*/target
+*.war
+*.jar
+/doc
 
 # for idea
 *.iml
@@ -8,3 +13,4 @@
 */target
 .DS_Store
 .gitattributes
+
