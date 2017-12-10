@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * 3、加 “@JobHander” 注解，注解value值为新增任务生成的JobKey的值;多个JobKey用逗号分割;
  * 4、执行日志：需要通过 "XxlJobLogger.log" 打印执行日志；
  *
- * @author xuxueli 2015-12-19 19:43:36
+ * @author zhuxiange 2015-12-19 19:43:36
  */
 @JobHander(value="demoJobHandler")
 @Service

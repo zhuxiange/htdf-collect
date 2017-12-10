@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 
 /**
  * 邮件发送.Util
- * @author xuxueli 2016-3-12 15:06:20
+ * @author zhuxiange 2016-3-12 15:06:20
  */
 public class MailUtil {
 	private static Logger logger = LoggerFactory.getLogger(MailUtil.class);

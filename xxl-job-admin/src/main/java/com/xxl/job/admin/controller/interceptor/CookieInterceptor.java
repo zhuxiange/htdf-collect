@@ -12,7 +12,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
  * push cookies to model as cookieMap
- * @author xuxueli 2015-12-12 18:09:04
+ * @author zhuxiange 2015-12-12 18:09:04
  */
 public class CookieInterceptor extends HandlerInterceptorAdapter {
 

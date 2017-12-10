@@ -25,7 +25,7 @@ package com.xxl.job.admin.core.jobbean;
 //
 ///**
 // * http job bean
-// * @author xuxueli 2015-12-17 18:20:34
+// * @author zhuxiange 2015-12-17 18:20:34
 // */
 //@Deprecated
 //public abstract class LocalNomalJobBean extends QuartzJobBean {

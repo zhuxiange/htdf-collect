@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * Created by xuxueli on 16/7/22.
+ * Created by zhuxiange on 16/7/22.
  */
 public class TriggerCallbackThread {
     private static Logger logger = LoggerFactory.getLogger(TriggerCallbackThread.class);

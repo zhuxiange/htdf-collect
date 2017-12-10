@@ -10,7 +10,7 @@ package com.xxl.job.admin.core.jobbean.impl;
 //
 ///**
 // * demo job bean for concurrent
-// * @author xuxueli 2016-3-12 14:25:57
+// * @author zhuxiange 2016-3-12 14:25:57
 // */
 //@Deprecated
 //public class DemoNomalJobBean extends LocalNomalJobBean {

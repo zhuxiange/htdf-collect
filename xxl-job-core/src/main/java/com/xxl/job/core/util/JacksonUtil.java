@@ -19,7 +19,7 @@ import java.util.Map;
  * 1、obj need private and set/get；
  * 2、do not support inner class；
  * 
- * @author xuxueli 2015-9-25 18:02:56
+ * @author zhuxiange 2015-9-25 18:02:56
  */
 public class JacksonUtil {
 	private static Logger logger = LoggerFactory.getLogger(JacksonUtil.class);

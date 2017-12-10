@@ -11,7 +11,7 @@ import org.junit.Test;
 /**
  * admin api test
  *
- * @author xuxueli 2017-07-28 22:14:52
+ * @author zhuxiange 2017-07-28 22:14:52
  */
 public class AdminBizTest {
 

@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * job group controller
- * @author xuxueli 2016-10-02 20:52:56
+ * @author zhuxiange 2016-10-02 20:52:56
  */
 @Controller
 @RequestMapping("/jobgroup")

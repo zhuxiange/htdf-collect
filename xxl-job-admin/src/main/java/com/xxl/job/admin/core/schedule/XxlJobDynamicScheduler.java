@@ -28,7 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * base quartz scheduler util
- * @author xuxueli 2015-12-19 16:13:53
+ * @author zhuxiange 2015-12-19 16:13:53
  */
 public final class XxlJobDynamicScheduler implements ApplicationContextAware {
     private static final Logger logger = LoggerFactory.getLogger(XxlJobDynamicScheduler.class);

@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * Created by xuxueli on 16/9/30.
+ * Created by zhuxiange on 16/9/30.
  */
 public interface XxlJobRegistryDao {
 

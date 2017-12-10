@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * jetty client
- * @author xuxueli 2015-11-24 22:25:15
+ * @author zhuxiange 2015-11-24 22:25:15
  */
 public class JettyClient {
 	private static Logger logger = LoggerFactory.getLogger(JettyClient.class);

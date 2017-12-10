@@ -12,7 +12,7 @@ import java.math.BigInteger;
 
 /**
  * 权限拦截, 简易版
- * @author xuxueli 2015-12-12 18:09:04
+ * @author zhuxiange 2015-12-12 18:09:04
  */
 public class PermissionInterceptor extends HandlerInterceptorAdapter {
 	

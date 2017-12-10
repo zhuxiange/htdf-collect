@@ -15,7 +15,7 @@ import java.lang.reflect.Modifier;
 
 /**
  * glue factory, product class/object by name
- * @author xuxueli 2016-1-2 20:02:27
+ * @author zhuxiange 2016-1-2 20:02:27
  */
 public class GlueFactory {
 	private static Logger logger = LoggerFactory.getLogger(GlueFactory.class);

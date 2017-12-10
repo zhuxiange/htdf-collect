@@ -18,7 +18,7 @@ import java.io.OutputStream;
 
 /**
  * jetty handler
- * @author xuxueli 2015-11-19 22:32:36
+ * @author zhuxiange 2015-11-19 22:32:36
  */
 public class JettyServerHandler extends AbstractHandler {
 	private static Logger logger = LoggerFactory.getLogger(JettyServerHandler.class);

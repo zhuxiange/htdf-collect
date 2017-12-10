@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * job log
- * @author xuxueli 2016-1-12 18:03:06
+ * @author zhuxiange 2016-1-12 18:03:06
  */
 public interface XxlJobLogDao {
 	

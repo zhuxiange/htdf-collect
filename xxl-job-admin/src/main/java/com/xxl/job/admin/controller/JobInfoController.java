@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
  * index controller
- * @author xuxueli 2015-12-19 16:13:16
+ * @author zhuxiange 2015-12-19 16:13:16
  */
 @Controller
 @RequestMapping("/jobinfo")

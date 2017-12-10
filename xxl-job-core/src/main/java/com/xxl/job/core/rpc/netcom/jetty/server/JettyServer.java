@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * rpc jetty server
- * @author xuxueli 2015-11-19 22:29:03
+ * @author zhuxiange 2015-11-19 22:29:03
  */
 public class JettyServer {
 	private static final Logger logger = LoggerFactory.getLogger(JettyServer.class);

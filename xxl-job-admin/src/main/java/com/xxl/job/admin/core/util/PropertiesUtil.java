@@ -12,7 +12,7 @@ import java.util.Properties;
 
 /**
  * properties util
- * @author xuxueli 2015-8-28 10:35:53
+ * @author zhuxiange 2015-8-28 10:35:53
  */
 public class PropertiesUtil {
 	private static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);

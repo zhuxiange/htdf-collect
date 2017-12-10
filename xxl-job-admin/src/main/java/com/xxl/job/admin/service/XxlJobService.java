@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * core job action for xxl-job
  * 
- * @author xuxueli 2016-5-28 15:30:33
+ * @author zhuxiange 2016-5-28 15:30:33
  */
 public interface XxlJobService {
 	

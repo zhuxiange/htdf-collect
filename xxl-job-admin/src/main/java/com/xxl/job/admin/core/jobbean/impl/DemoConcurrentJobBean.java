@@ -9,7 +9,7 @@ package com.xxl.job.admin.core.jobbean.impl;
 //
 ///**
 // * demo job bean for no-concurrent
-// * @author xuxueli 2016-3-12 14:25:14
+// * @author zhuxiange 2016-3-12 14:25:14
 // */
 //@Deprecated
 //@DisallowConcurrentExecution	// 串行；线程数要多配置几个，否则不生效；

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * common exception resolver
- * @author xuxueli 2016-1-6 19:22:18
+ * @author zhuxiange 2016-1-6 19:22:18
  */
 public class WebExceptionResolver implements HandlerExceptionResolver {
 	private static transient Logger logger = LoggerFactory.getLogger(WebExceptionResolver.class);

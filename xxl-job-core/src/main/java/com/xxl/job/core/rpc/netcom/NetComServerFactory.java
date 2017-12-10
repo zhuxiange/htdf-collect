@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * netcom init
- * @author xuxueli 2015-10-31 22:54:27
+ * @author zhuxiange 2015-10-31 22:54:27
  */
 public class NetComServerFactory  {
 	private static final Logger logger = LoggerFactory.getLogger(NetComServerFactory.class);

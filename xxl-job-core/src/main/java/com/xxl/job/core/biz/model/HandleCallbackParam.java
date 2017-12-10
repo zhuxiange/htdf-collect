@@ -3,7 +3,7 @@ package com.xxl.job.core.biz.model;
 import java.io.Serializable;
 
 /**
- * Created by xuxueli on 17/3/2.
+ * Created by zhuxiange on 17/3/2.
  */
 public class HandleCallbackParam implements Serializable {
     private static final long serialVersionUID = 42L;

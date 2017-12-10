@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Created by xuxueli on 2016/3/2 21:14.
+ * Created by zhuxiange on 2016/3/2 21:14.
  */
 public class XxlJobExecutor implements ApplicationContextAware {
     private static final Logger logger = LoggerFactory.getLogger(XxlJobExecutor.class);

@@ -8,7 +8,7 @@ import com.xxl.job.core.log.XxlJobLogger;
 import com.xxl.job.core.util.ScriptUtil;
 
 /**
- * Created by xuxueli on 17/4/27.
+ * Created by zhuxiange on 17/4/27.
  */
 public class ScriptJobHandler extends IJobHandler {
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * job log for glue
- * @author xuxueli 2016-5-19 18:04:56
+ * @author zhuxiange 2016-5-19 18:04:56
  */
 public interface XxlJobLogGlueDao {
 	

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * job registry instance
- * @author xuxueli 2016-10-02 19:10:24
+ * @author zhuxiange 2016-10-02 19:10:24
  */
 public class JobRegistryMonitorHelper {
 	private static Logger logger = LoggerFactory.getLogger(JobRegistryMonitorHelper.class);

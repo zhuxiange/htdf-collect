@@ -2,7 +2,7 @@ package com.xxl.job.admin.core.model;
 
 /**
  * xxl-job log for glue, used to track job code process
- * @author xuxueli 2016-5-19 17:57:46
+ * @author zhuxiange 2016-5-19 17:57:46
  */
 public class XxlJobLogGlue {
 	

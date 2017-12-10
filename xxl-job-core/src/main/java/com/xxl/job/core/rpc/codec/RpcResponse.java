@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * response
- * @author xuxueli 2015-10-29 19:39:54
+ * @author zhuxiange 2015-10-29 19:39:54
  */
 public class RpcResponse implements Serializable{
 	private static final long serialVersionUID = 1L;

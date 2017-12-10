@@ -13,7 +13,7 @@ import java.lang.reflect.Proxy;
 
 /**
  * rpc proxy
- * @author xuxueli 2015-10-29 20:18:32
+ * @author zhuxiange 2015-10-29 20:18:32
  */
 public class NetComClientProxy implements FactoryBean<Object> {
 	private static final Logger logger = LoggerFactory.getLogger(NetComClientProxy.class);

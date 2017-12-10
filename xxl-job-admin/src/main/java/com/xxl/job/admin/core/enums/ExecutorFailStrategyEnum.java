@@ -1,7 +1,7 @@
 package com.xxl.job.admin.core.enums;
 
 /**
- * Created by xuxueli on 17/5/9.
+ * Created by zhuxiange on 17/5/9.
  */
 public enum ExecutorFailStrategyEnum {
 

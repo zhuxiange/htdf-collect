@@ -18,7 +18,7 @@ import java.io.InputStream;
 
 /**
  * httpclient util
- * @author xuxueli 2015-10-31 19:50:41
+ * @author zhuxiange 2015-10-31 19:50:41
  */
 public class HttpClientUtil {
 	private static Logger logger = LoggerFactory.getLogger(HttpClientUtil.class);
