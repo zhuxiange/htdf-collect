@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class HandleCallbackParam implements Serializable {
     private static final long serialVersionUID = 42L;
 
+    
     private int logId;
     private ReturnT<String> executeResult;
 
