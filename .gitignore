@@ -1,6 +1,6 @@
 # for eclipse
 /.settings/
-/.project
+.project
 .classpath
 */target
 *.war
