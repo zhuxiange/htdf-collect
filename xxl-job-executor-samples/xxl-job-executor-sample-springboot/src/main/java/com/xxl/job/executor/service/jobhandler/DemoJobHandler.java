@@ -1,10 +1,16 @@
+
 package com.xxl.job.executor.service.jobhandler;
 
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.handler.IJobHandler;
 import com.xxl.job.core.handler.annotation.JobHander;
 import com.xxl.job.core.log.XxlJobLogger;
+import com.xxl.job.executor.kafka.MsgConstants;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,16 +26,22 @@ import java.util.concurrent.TimeUnit;
  *
  * @author xuxueli 2015-12-19 19:43:36
  */
-@JobHander(value="demoJobHandler")
+@JobHander(value = "demoJobHandler")
 @Service
-public class DemoJobHandler extends IJobHandler {
-
+public class DemoJobHandler extends IJobHandler
+{
+	
+	@Autowired
+	private KafkaTemplate kafkaTemplate;
+	
+	@SuppressWarnings("unchecked")
 	@Override
-	public ReturnT<String> execute(String... params) throws Exception {
+	public ReturnT<String> execute(String... params) throws Exception
+	{
 		
-		try{
+		/*try{
 			XxlJobLogger.log("XXL-JOB, Hello World.");
-
+		
 			for (int i = 0; i < 5; i++) {
 				XxlJobLogger.log("beat at:" + i);
 				TimeUnit.SECONDS.sleep(2);
@@ -40,8 +52,23 @@ public class DemoJobHandler extends IJobHandler {
 		    }
 		    XxlJobLogger.log("{}", e);
 		}
+		*/
+		ListenableFuture result = null;
+		try
+		{
+			result = kafkaTemplate.send(MsgConstants.TOPIC_MSG, MsgConstants.NATION_STATION_MSG, "cimiss获取到的json信息");
+			if (result.isDone())
+			{
+				XxlJobLogger.log("{采集国家站站点成功}");
+			}
+			return ReturnT.SUCCESS;
+		}
+		catch (Exception e)
+		{
+			XxlJobLogger.log("{采集国家站站点失败}", e);
+			return ReturnT.FAIL;
+		}
 		
-		return ReturnT.SUCCESS;
 	}
-
+	
 }
