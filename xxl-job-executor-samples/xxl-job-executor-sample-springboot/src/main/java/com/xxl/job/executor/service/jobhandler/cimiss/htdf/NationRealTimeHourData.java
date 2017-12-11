@@ -18,23 +18,24 @@ import com.xxl.job.executor.util.CimissUtil;
 
 /**
  * 国家站小时实况数据
+ * 
  * @author ck
  *
  */
-@JobHander(value="nationRealTimeHourData")
+@JobHander(value = "nationRealTimeHourData")
 @Service
-public class NationRealTimeHourData  extends IJobHandler {
-	
+public class NationRealTimeHourData extends IJobHandler {
+
 	@Autowired
 	private CimissConfig cimissConfig;
-	
+
 	private static final Logger Logger = LoggerFactory.getLogger(NationRealTimeHourData.class);
- 
+
 	@Override
 	public ReturnT<String> execute(String... params) throws Exception {
-		
-		//例子 -- 参数
-		Map<String,Object> map = new HashMap();
+
+		// 例子 -- 参数
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("userId", cimissConfig.getUsername());
 		map.put("pwd", cimissConfig.getPassword());
 		map.put("interfaceId", "getStaInfoByNetCodes");
@@ -42,15 +43,16 @@ public class NationRealTimeHourData  extends IJobHandler {
 		map.put("dataCode", "STA_INFO_CHN");
 		map.put("netCodes", "05");
 		map.put("dataFormat", "json");
-		//获取数据
-		List<Map<String,Object>> li =  CimissUtil.getCimissData(map, cimissConfig.getWsdl(), cimissConfig.getTargetNamespace(), cimissConfig.getTimeoutInMilliSeconds());
-		//循环获取的数据
-		for(Map<String,Object> map1:li) {
+		// 获取数据
+		List<Map<String, Object>> li = CimissUtil.getCimissData(map, cimissConfig.getWsdl(),
+				cimissConfig.getTargetNamespace(), cimissConfig.getTimeoutInMilliSeconds());
+		// 循环获取的数据
+		for (Map<String, Object> map1 : li) {
 			Set<String> m = map1.keySet();
-			for(String s:m){
-				System.out.println(s+":"+map1.get(s));
+			for (String s : m) {
+				System.out.println(s + ":" + map1.get(s));
 			}
 		}
-		return null;
+		return new ReturnT<>(ReturnT.SUCCESS_CODE, "成功！");
 	}
 }
