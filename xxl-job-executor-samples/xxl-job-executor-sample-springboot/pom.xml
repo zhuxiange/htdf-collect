@@ -13,12 +13,12 @@
 
     <name>${project.artifactId}</name>
     <description>Example executor project for spring boot.</description>
-    <url>http://www.xuxueli.com/</url>
+    <url>http://www.htdf.cc/</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencyManagement>
@@ -145,7 +145,6 @@
 		<dependency>
 		    <groupId>org.apache.httpcomponents</groupId>
 		    <artifactId>httpclient</artifactId>
-		    <version>4.3.6</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.httpcomponents</groupId>
@@ -168,6 +167,20 @@
 		    <artifactId>commons-lang</artifactId>
 		    <version>2.5</version>
 		</dependency>
+		
+		
+		 <!--kafka支持-->
+		<dependency>
+		    <groupId>org.springframework.kafka</groupId>
+		    <artifactId>spring-kafka</artifactId>
+		    <version>1.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
 
     </dependencies>
 
