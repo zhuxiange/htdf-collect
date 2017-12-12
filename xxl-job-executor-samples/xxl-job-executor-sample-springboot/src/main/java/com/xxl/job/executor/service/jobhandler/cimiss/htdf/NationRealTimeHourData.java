@@ -37,8 +37,9 @@ public class NationRealTimeHourData extends IJobHandler {
 
 	 
 		
-		String sql = "";
-		List<Map<Object,Object>> list = dbConfig.select(sql, "1");
+		String sql = "select * from PROVINCECODE ";
+		List<Map<Object,Object>> list = dbConfig.select(sql, dbConfig.ORACLE);
+		Logger.info("------"+list);
 		
 		/*// 例子 -- 参数
 		Map<String, Object> map = new HashMap<String, Object>();
