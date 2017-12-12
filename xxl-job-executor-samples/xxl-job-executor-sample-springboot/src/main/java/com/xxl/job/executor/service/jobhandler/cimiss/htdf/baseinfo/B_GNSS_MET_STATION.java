@@ -1,4 +1,4 @@
-package com.xxl.job.executor.service.jobhandler.cimiss.htdf;
+package com.xxl.job.executor.service.jobhandler.cimiss.htdf.baseinfo;
 
 import java.util.Map;
 
@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.xxl.job.core.handler.annotation.JobHander;
+import com.xxl.job.executor.service.jobhandler.cimiss.htdf.CollectBase;
 
 /**
  * 采集 GNSS/MET站点
