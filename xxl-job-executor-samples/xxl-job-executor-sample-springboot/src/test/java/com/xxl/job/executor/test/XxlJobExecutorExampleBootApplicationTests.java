@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.xxl.job.executor.service.jobhandler.cimiss.htdf.D_REGION_HH;
 import com.xxl.job.executor.service.jobhandler.cimiss.htdf.NationRealTimeHourData;
+import com.xxl.job.executor.service.jobhandler.cimiss.htdf.data.D_REGION_HH;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
