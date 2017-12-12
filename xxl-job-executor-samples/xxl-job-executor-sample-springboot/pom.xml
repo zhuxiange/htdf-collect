@@ -180,7 +180,11 @@
 			<version>${c3p0.version}</version>
 		</dependency>
 		
-		
+		<dependency>
+				<groupId>com.cn.oracle</groupId>
+				<artifactId>ojdbc8</artifactId>
+				<version>11.2.0.4</version>
+		</dependency>
 		
 		 <!--kafka支持-->
 		<dependency>

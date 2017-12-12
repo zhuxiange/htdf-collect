@@ -52,20 +52,20 @@ public class DBConfig {
 	//库
 	@Value("${c3p0.db1.jdbcUrl}")
 	public  String	jdbcUrl1;
-	@Value("${c3p0.db1.user1}")
+	@Value("${c3p0.db1.user}")
 	public String	user1;
-	@Value("${c3p0.db1.password1}")
+	@Value("${c3p0.db1.password}")
 	public String	password1;
-	@Value("${c3p0.db1.driverClass1}")
+	@Value("${c3p0.db1.driverClass}")
 	public String	driverClass1;
 	
 	@Value("${c3p0.db2.jdbcUrl}")
 	public String	jdbcUrl2;
-	@Value("${c3p0.db2.user1}")
+	@Value("${c3p0.db2.user}")
 	public String	user2;
-	@Value("${c3p0.db2.password1}")
+	@Value("${c3p0.db2.password}")
 	public String	password2;
-	@Value("${c3p0.db2.driverClass1}")
+	@Value("${c3p0.db2.driverClass}")
 	public String	driverClass2; 
 	
 	public Connection con = null;
