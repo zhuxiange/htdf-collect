@@ -127,6 +127,80 @@ public class DBConfig {
 		return vec;
 	}
 	
+	 public boolean update(String[] strSql,String sign) {
+	        Statement stmt = null;
+	        boolean blnResult = true;
+	        try {
+	            con = getConnection(sign);
+	            con.setAutoCommit(false);
+	            stmt = con.createStatement();
+	            for (int i = 0; i < strSql.length; i++) {
+	                stmt.execute(strSql[i]);
+	            }
+	            con.commit();
+	            stmt.close();
+	        } catch (SQLException e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        } catch (Exception e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        }
+	        try {
+	            if (!blnResult) {
+	                con.rollback();
+	            }
+	            con.setAutoCommit(true);
+	        } catch (Exception e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        } finally {
+	            try {
+	                con.close();
+	            } catch (Exception e) {
+	                blnResult = false;
+	                Logger.error("",e);
+	            }
+	        }
+	        return blnResult;
+	    }
+	 
+	 public boolean update(String strSql,String sign) {
+	        Statement stmt = null;
+	        boolean blnResult = true;
+	        try {
+	            con = getConnection(sign);
+	            con.setAutoCommit(false);
+	            stmt = con.createStatement(); 
+	            stmt.execute(strSql); 
+	            con.commit();
+	            stmt.close();
+	        } catch (SQLException e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        } catch (Exception e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        }
+	        try {
+	            if (!blnResult) {
+	                con.rollback();
+	            }
+	            con.setAutoCommit(true);
+	        } catch (Exception e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        } finally {
+	            try {
+	                con.close();
+	            } catch (Exception e) {
+	                blnResult = false;
+	                Logger.error("",e);
+	            }
+	        }
+	        return blnResult;
+	    }
+	
 	/**
 	* 根据配置信息初始化连接池
 	* @param dataConf
