@@ -35,8 +35,6 @@ public class NationRealTimeHourData extends IJobHandler {
 	@Override
 	public ReturnT<String> execute(String... params) throws Exception {
 
-	 
-		
 		String sql = "select * from PROVINCECODE ";
 		List<Map<Object,Object>> list = dbConfig.select(sql, dbConfig.ORACLE);
 		Logger.info("------"+list);
