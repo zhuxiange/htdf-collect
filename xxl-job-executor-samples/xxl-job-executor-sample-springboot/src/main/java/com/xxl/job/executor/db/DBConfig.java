@@ -26,6 +26,8 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 public class DBConfig {
 	private static final Logger Logger = LoggerFactory.getLogger(DBConfig.class);
 	public static ComboPooledDataSource dataSource;
+	public static String MYSQL = "1";
+	public static String ORACLE = "2";
 	//公共属性
 	@Value("${c3p0.minPoolSize}")
 	public String	minPoolSize;
