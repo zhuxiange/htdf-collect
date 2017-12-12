@@ -13,6 +13,7 @@ import com.xxl.job.core.handler.IJobHandler;
 import com.xxl.job.core.handler.annotation.JobHander;
 import com.xxl.job.executor.db.DBConfig;
 import com.xxl.job.executor.util.CimissConfig;
+import com.xxl.job.executor.util.constant.DBConstant;
 
 /**
  * 国家站小时实况数据
@@ -35,10 +36,8 @@ public class NationRealTimeHourData extends IJobHandler {
 	@Override
 	public ReturnT<String> execute(String... params) throws Exception {
 
-	 
-		
 		String sql = "select * from PROVINCECODE ";
-		List<Map<Object,Object>> list = dbConfig.select(sql, dbConfig.ORACLE);
+		List<Map<String,Object>> list = dbConfig.select(sql, DBConstant.ORACLE);
 		Logger.info("------"+list);
 		
 		/*// 例子 -- 参数

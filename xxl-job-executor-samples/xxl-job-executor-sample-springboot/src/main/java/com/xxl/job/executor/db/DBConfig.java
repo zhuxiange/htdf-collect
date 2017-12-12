@@ -26,8 +26,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 public class DBConfig {
 	private static final Logger Logger = LoggerFactory.getLogger(DBConfig.class);
 	public static ComboPooledDataSource dataSource;
-	public static String MYSQL = "1";
-	public static String ORACLE = "2";
+	
 	//公共属性
 	@Value("${c3p0.minPoolSize}")
 	public String	minPoolSize;
@@ -82,9 +81,9 @@ public class DBConfig {
 			return con;
 	}
 	
-	public List<Map<Object, Object>> select(String strSql,String sign) {
+	public List<Map<String, Object>> select(String strSql,String sign) {
 		Statement stmt = null;
-		Vector<Map<Object, Object>> vec = new Vector<Map<Object, Object>>();
+		Vector<Map<String, Object>> vec = new Vector<Map<String, Object>>();
 		ResultSet objRS = null;
 		try {
 			con = getConnection(sign);
@@ -92,13 +91,13 @@ public class DBConfig {
 			objRS = stmt.executeQuery(strSql);
 			ResultSetMetaData meta = objRS.getMetaData();
 			while (objRS.next()) {
-				HashMap<Object, Object> hash = new HashMap<Object, Object>();
+				HashMap<String, Object> hash = new HashMap<String, Object>();
 				for (int i = 1; i <= meta.getColumnCount(); i++) {
 					String temp = objRS.getString(meta.getColumnName(i));
 					if (temp == null) {
 						temp = "";
 					}
-					hash.put(meta.getColumnName(i), temp);
+					hash.put( (String) meta.getColumnName(i), temp);
 				}
 				vec.add(hash);
 			}
@@ -126,6 +125,80 @@ public class DBConfig {
 		}
 		return vec;
 	}
+	
+	 public boolean update(String[] strSql,String sign) {
+	        Statement stmt = null;
+	        boolean blnResult = true;
+	        try {
+	            con = getConnection(sign);
+	            con.setAutoCommit(false);
+	            stmt = con.createStatement();
+	            for (int i = 0; i < strSql.length; i++) {
+	                stmt.execute(strSql[i]);
+	            }
+	            con.commit();
+	            stmt.close();
+	        } catch (SQLException e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        } catch (Exception e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        }
+	        try {
+	            if (!blnResult) {
+	                con.rollback();
+	            }
+	            con.setAutoCommit(true);
+	        } catch (Exception e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        } finally {
+	            try {
+	                con.close();
+	            } catch (Exception e) {
+	                blnResult = false;
+	                Logger.error("",e);
+	            }
+	        }
+	        return blnResult;
+	    }
+	 
+	 public boolean update(String strSql,String sign) {
+	        Statement stmt = null;
+	        boolean blnResult = true;
+	        try {
+	            con = getConnection(sign);
+	            con.setAutoCommit(false);
+	            stmt = con.createStatement(); 
+	            stmt.execute(strSql); 
+	            con.commit();
+	            stmt.close();
+	        } catch (SQLException e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        } catch (Exception e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        }
+	        try {
+	            if (!blnResult) {
+	                con.rollback();
+	            }
+	            con.setAutoCommit(true);
+	        } catch (Exception e) {
+	            blnResult = false;
+	            Logger.error("",e);
+	        } finally {
+	            try {
+	                con.close();
+	            } catch (Exception e) {
+	                blnResult = false;
+	                Logger.error("",e);
+	            }
+	        }
+	        return blnResult;
+	    }
 	
 	/**
 	* 根据配置信息初始化连接池
