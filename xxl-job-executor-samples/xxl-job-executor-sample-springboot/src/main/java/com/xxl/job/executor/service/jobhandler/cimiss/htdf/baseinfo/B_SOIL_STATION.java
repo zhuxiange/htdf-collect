@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.xxl.job.core.handler.annotation.JobHander;
 import com.xxl.job.executor.service.jobhandler.cimiss.htdf.CollectBase;
+import com.xxl.job.executor.util.constant.DBConstant;
 
 /**
  * 采集土壤站点
@@ -19,6 +20,9 @@ import com.xxl.job.executor.service.jobhandler.cimiss.htdf.CollectBase;
 @Service
 public class B_SOIL_STATION extends CollectBase {
 
+	public B_SOIL_STATION() {
+		super(DBConstant.CIMISS);
+	}
 
 	@SuppressWarnings("unused")
 	private static final Logger Logger = LoggerFactory.getLogger(B_SOIL_STATION.class);

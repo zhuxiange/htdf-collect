@@ -1,5 +1,6 @@
 package com.xxl.job.executor.service.jobhandler.cimiss.htdf.data;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -11,32 +12,26 @@ import com.xxl.job.executor.service.jobhandler.cimiss.htdf.CollectBase;
 import com.xxl.job.executor.util.constant.DBConstant;
 
 /**
- * 采集土壤资料数据
+ * 雷电定位
  * 
  * @author LinShu
  *
  */
-@JobHander(value = "d_soil")
+@JobHander(value = "d_flashlight")
 @Service
-public class D_SOIL extends CollectBase {
+public class D_FLASHLIGHT extends CollectBase {
 
-	public D_SOIL() {
-		super(DBConstant.CIMISS);
+	public D_FLASHLIGHT() {
+		super(DBConstant.ORACLE);
 	}
 
 	@SuppressWarnings("unused")
-	private static final Logger Logger = LoggerFactory.getLogger(D_SOIL.class);
+	private static final Logger Logger = LoggerFactory.getLogger(D_FLASHLIGHT.class);
 
-	/*
-	 * TODO 时间得处理
-	 */
 	@Override
 	protected Map<String, Object> param() {
-		Map<String, Object> map = super.param();
-		map.put("dataCode", "AGME_CHN_SOIL_HOR");
-		map.put("interfaceId", "getAgmeEleByTime");
-		map.put("times", "20171207010000");
-		map.put("elements", "Station_Id_C,Year,Mon,Day,Hour,Min,Soil_Indi,Soil_Depth_BelS,SVWC,SRHU,SWWC,SVMS");
+		Map<String, Object> map = new HashMap<>();
+		map.put("sql", "select * from DATA_FLASHLIGHT");
 		return map;
 	}
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.xxl.job.core.handler.annotation.JobHander;
 import com.xxl.job.executor.service.jobhandler.cimiss.htdf.CollectBase;
+import com.xxl.job.executor.util.constant.DBConstant;
 
 /**
  * 采集GNSS/MET观测资料数据
@@ -19,23 +20,23 @@ import com.xxl.job.executor.service.jobhandler.cimiss.htdf.CollectBase;
 @Service
 public class D_GNSS_MET extends CollectBase {
 
+	public D_GNSS_MET() {
+		super(DBConstant.CIMISS);
+	}
 
 	@SuppressWarnings("unused")
 	private static final Logger Logger = LoggerFactory.getLogger(D_GNSS_MET.class);
 
-	/* 
-	 * TODO 时间得处理
-	 * TODO 查询的站点需要处理
+	/*
+	 * TODO 时间得处理 TODO 查询的站点需要处理
 	 */
 	@Override
 	protected Map<String, Object> param() {
 		Map<String, Object> map = super.param();
-		map.put("dataCode", "UPAR_CHN_GPSMET_MUL");
 		map.put("interfaceId", "getUparGpsEleByTimeAndStaID");
 		map.put("times", "20171207030000");
 		map.put("staIds", "54511,59114");
-		map.put("elements",
-				"Station_Id_C,Year,Mon,Day,Hour,Min,TZD,PRS,TEM,RHU,PRE_PRE_Fore");
+		map.put("elements", "Station_Id_C,Year,Mon,Day,Hour,Min,TZD,PRS,TEM,RHU,PRE_PRE_Fore");
 		return map;
 	}
 }

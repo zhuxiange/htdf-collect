@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.xxl.job.core.handler.annotation.JobHander;
 import com.xxl.job.executor.service.jobhandler.cimiss.htdf.CollectBase;
+import com.xxl.job.executor.util.constant.DBConstant;
 
 /**
  * 采集FY-2G沙尘指数图像产品
@@ -18,6 +19,10 @@ import com.xxl.job.executor.service.jobhandler.cimiss.htdf.CollectBase;
 @JobHander(value = "p_sate_fy2_sandindex")
 @Service
 public class P_SATE_FY2_SANDINDEX extends CollectBase {
+
+	public P_SATE_FY2_SANDINDEX() {
+		super(DBConstant.CIMISS);
+	}
 
 	@SuppressWarnings("unused")
 	private static final Logger Logger = LoggerFactory.getLogger(P_SATE_FY2_SANDINDEX.class);
