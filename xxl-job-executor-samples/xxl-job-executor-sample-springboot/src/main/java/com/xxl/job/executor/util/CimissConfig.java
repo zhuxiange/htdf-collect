@@ -13,7 +13,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value = {"classpath:cimiss.properties"},ignoreResourceNotFound = true,encoding = "utf-8")
 */
 @Configuration
-@PropertySource("classpath:cimiss.properties")
+@PropertySource("classpath:/config/cimiss.properties")
 public class CimissConfig {
 	
 	@Value("${cimiss.username}")
