@@ -34,8 +34,10 @@ public abstract class CollectBase extends IJobHandler {
 	public ReturnT<String> execute(String... params) throws Exception {
 		// 参数
 		Map<String, Object> map = param();
+		Logger.info(this.getClass().getName() + "参数[ "+map+" ]");
 		// 获取数据
 		List<Map<String, Object>> li = getData(map);
+		Logger.info(this.getClass().getName() + "获取数据记录条数[ "+li.size()+" ]");
 		// 处理(包括发送)
 		handlerData(li);
 		Logger.info(this.getClass().getName() + "--处理了");
