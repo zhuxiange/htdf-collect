@@ -27,7 +27,7 @@ public class CimissConfig {
 	@Value("${cimiss.timeoutInMilliSeconds}")
 	public String		timeoutInMilliSeconds;
 	
-	/*   @Bean
+	/*   @Bean    
 	    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
 	        return new PropertySourcesPlaceholderConfigurer();
 	    }*/
