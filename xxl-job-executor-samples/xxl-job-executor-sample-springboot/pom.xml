@@ -162,13 +162,6 @@
 		    <version>2.4</version>
 		    <classifier>jdk15</classifier>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
-		<dependency>
-		    <groupId>org.json</groupId>
-		    <artifactId>json</artifactId>
-		    <version>20160810</version>
-		</dependency>
-		
 		<dependency>
 		    <groupId>commons-lang</groupId>
 		    <artifactId>commons-lang</artifactId>
@@ -204,19 +197,23 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/jcifs/jcifs -->
-		<dependency>
-		    <groupId>jcifs</groupId>
-		    <artifactId>jcifs</artifactId>
-		    <version>1.3.17</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
-		<dependency>
-		    <groupId>commons-net</groupId>
-		    <artifactId>commons-net</artifactId>
-		    <version>3.0.1</version>
-		</dependency>
 		
+		<!-- active mq 支持 -->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>logback-core</artifactId>
+                    <groupId>ch.qos.logback</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>logback-classic</artifactId>
+                    <groupId>ch.qos.logback</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
 
     </dependencies>
 

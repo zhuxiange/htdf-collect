@@ -9,13 +9,18 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.util.concurrent.ListenableFuture;
 
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.handler.IJobHandler;
+import com.xxl.job.core.log.XxlJobLogger;
 import com.xxl.job.executor.db.DBConfig;
 import com.xxl.job.executor.util.CimissConfig;
 import com.xxl.job.executor.util.CimissUtil;
 import com.xxl.job.executor.util.constant.DBConstant;
+
+import net.sf.json.JSONArray;
 
 /**
  * 这是个采集的采集基础类,封装好了方法顺序,编辑参数param(),获取数据getData(),处理(即发送)数据<br>
@@ -35,14 +40,27 @@ public abstract class CollectBase extends IJobHandler {
 	@Autowired
 	protected DBConfig dbConfig;
 
+	@Autowired
+	protected KafkaTemplate kafkaTemplate;
+
 	// public abstract void lalal();
 	/**
 	 * 采集源的类型
 	 */
 	private String _type = "";
+	/**
+	 * kafk topic
+	 */
+	private String _kafka_topic = "";
+	/**
+	 * kafk type
+	 */
+	private String _kafka_type = "";
 
-	public CollectBase(String type) {
+	public CollectBase(String type, String kafka_topic, String kafka_type) {
 		this._type = type;
+		this._kafka_topic = kafka_topic;
+		this._kafka_type = kafka_type;
 	}
 
 	@Override
@@ -52,11 +70,21 @@ public abstract class CollectBase extends IJobHandler {
 		Logger.info(this.getClass().getSimpleName() + "--参数[ " + map + " ]");
 		// 获取数据
 		List<Map<String, Object>> li = getData(map);
+		li = upperCaseKey(li);
 		Logger.info(this.getClass().getSimpleName() + "--获取数据记录条数[ " + li.size() + " ]");
+		//外部参数不为空,则另外处理
+		if(!mapOut.isEmpty()) {
+			//下载cimiss文件,并根据业务处理文件
+			cimissFile(li);
+		}
 		// 处理(包括发送)
-		handlerData(li);
+		boolean statu = handlerData(li, _kafka_topic, _kafka_type);
 		Logger.info(this.getClass().getSimpleName() + "--处理了");
-		return new ReturnT<>(ReturnT.SUCCESS_CODE, "成功！");
+		if (statu) {
+			return new ReturnT<>(ReturnT.SUCCESS_CODE, "成功！");
+		} else {
+			return new ReturnT<>(ReturnT.FAIL_CODE, "失败！");
+		}
 	}
 
 	/**
@@ -106,21 +134,50 @@ public abstract class CollectBase extends IJobHandler {
 	}
 
 	/**
-	 * 这个是处理获取到的数据接口，打算的的作用是将数据发送给kafa，目前只是实现打印，到时要改掉<br>
+	 * 这个是处理获取到的数据接口<br>
+	 * 默认执行kafkaTemplate.send(kafka_topic,kafka_type, list)<br>
 	 * 还需完善
 	 * 
 	 * @param list
 	 */
-	protected void handlerData(List<Map<String, Object>> list) {
+	protected boolean handlerData(List<Map<String, Object>> list, String kafka_topic, String kafka_type) {
 		// 循环获取的数据
-		for (Map<String, Object> map1 : list) {
-			System.out.println("----------------");
-			Set<String> m = map1.keySet();
-			for (String s : m) {
-				System.out.println(s + ":" + map1.get(s));
-			}
+		// for (Map<String, Object> map1 : list) {
+		// System.out.println("----------------");
+		// Set<String> m = map1.keySet();
+		// for (String s : m) {
+		// System.out.println(s + ":" + map1.get(s));
+		// }
+		// }
+		ListenableFuture<?> result = null;
+		try {
+			result = kafkaTemplate.send(kafka_topic, kafka_type, JSONArray.fromObject(list).toString());
+			XxlJobLogger.log("{0}", "成功");
+			return true;
+		} catch (Exception e) {
+			XxlJobLogger.log("{0}", e);
+			return false;
 		}
-//		System.out.println(this.getClass().getSimpleName() + ":" + list.size());
+
+	}
+
+	/**
+	 * 将所有的key转大写
+	 * @param li
+	 * @return
+	 */
+	private List<Map<String, Object>> upperCaseKey(List<Map<String, Object>> li) {
+		List<Map<String, Object>> tempL = new ArrayList<>();
+		Map<String, Object> tempM;
+		for (Map<String, Object> map : li) {
+			tempM = new HashMap<>();
+			Set<String> m = map.keySet();
+			for (String s : m) {
+				tempM.put(s.toUpperCase(), map.get(s));
+			}
+			tempL.add(tempM);
+		}
+		return tempL;
 	}
 
 	/**
